@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import MobileNav from './components/MobileNav';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import PortfolioPage from './pages/Portfolio';
 import Blog from './pages/Blog';
 import CV from './pages/CV';
-import HireMe from './pages/HireMe';
+import Contact from './pages/Contact';
 import './index.css';
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
       case 'portfolio': return <PortfolioPage />;
       case 'blog': return <Blog />;
       case 'cv': return <CV />;
-      case 'hire-me': return <HireMe />;
+      case 'contact': return <Contact />;
       default: return <Home />;
     }
   };
@@ -38,6 +39,7 @@ function App() {
   return (
     <div className="app-container">
       <Navbar />
+      <MobileNav />
       <main>
         {renderPage()}
       </main>

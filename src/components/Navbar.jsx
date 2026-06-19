@@ -11,7 +11,6 @@ const Navbar = () => {
         { label: 'Portfolio', href: '#portfolio' },
         { label: 'Blog', href: '#blog' },
         { label: 'CV', href: '#cv' },
-        { label: 'Contact', href: '#contact' },
     ];
 
     useEffect(() => {
@@ -31,7 +30,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${scrolled ? 'glass-nav border-outline-variant/30 py-4' : 'bg-transparent border-transparent py-8'
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b hidden md:block ${scrolled ? 'glass-nav border-outline-variant/30 py-4' : 'bg-transparent border-transparent py-8'
             }`}>
             <nav className="max-w-container-max mx-auto px-margin-edge flex justify-between items-center">
                 <motion.span
@@ -58,10 +57,10 @@ const Navbar = () => {
                 </div>
 
                 <a
-                    href="#hire-me"
-                    className="px-6 py-2 bg-espresso text-bone-white font-sans text-xs font-bold tracking-widest hover:bg-on-primary-fixed transition-all active:scale-95 uppercase block"
+                    href="#contact"
+                    className="px-6 py-2 bg-espresso text-bone-white font-sans text-xs font-bold tracking-widest hover:bg-on-primary-fixed transition-all active:scale-95 uppercase hidden md:block"
                 >
-                    HIRE ME
+                    CONTACT ME
                 </a>
             </nav>
         </header>

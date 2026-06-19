@@ -3,14 +3,39 @@ import { motion } from 'framer-motion';
 
 const Newsletter = () => {
     return (
-        <section className="bg-surface-container-low py-section-gap">
-            <div className="px-margin-edge max-w-container-max mx-auto text-center">
+        <section className="py-12 md:py-section-gap px-margin-edge bg-background md:bg-surface-container-low">
+            <div className="max-w-container-max mx-auto text-center px-margin-edge md:px-0">
+                {/* Mobile View: Card Style */}
+                <div className="md:hidden app-card p-6 text-center space-y-4 reveal-item active">
+                    <div className="space-y-1">
+                        <span className="text-[9px] font-semibold text-gold-leaf uppercase tracking-[0.3em] font-sans">Stay Curated</span>
+                        <h2 className="font-serif text-xl text-espresso italic">The Narrative Ledger</h2>
+                    </div>
+                    <p className="text-[13px] text-on-surface-variant leading-relaxed">
+                        Monthly insights on digital permanence and luxury narratives.
+                    </p>
+                    <form className="space-y-3 pt-2" onSubmit={(e) => e.preventDefault()}>
+                        <input
+                            className="w-full bg-background border border-taupe/20 rounded-lg py-3 px-4 text-[10px] text-center focus:ring-1 focus:ring-gold-leaf/30 focus:border-gold-leaf/50 transition-all outline-none uppercase tracking-widest font-sans"
+                            placeholder="YOUR EMAIL ADDRESS"
+                            type="email"
+                        />
+                        <button
+                            className="interactive-scale w-full py-3 border border-espresso text-espresso rounded-lg text-[10px] font-semibold tracking-widest uppercase hover:bg-espresso hover:text-white transition-colors font-sans"
+                            type="submit"
+                        >
+                            SUBSCRIBE
+                        </button>
+                    </form>
+                </div>
+
+                {/* Desktop View */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
-                    className="max-w-2xl mx-auto space-y-gutter"
+                    className="hidden md:block max-w-2xl mx-auto space-y-gutter"
                 >
                     <span className="font-sans text-[12px] text-gold-leaf tracking-[0.4em] font-bold uppercase">STAY CURATED</span>
                     <h2 className="text-[32px] md:text-[40px] text-espresso font-serif leading-tight font-semibold">The Narrative Ledger</h2>

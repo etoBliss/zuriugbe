@@ -1,53 +1,117 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
 
+const HERO_DATA = {
+    name: "ZURI UGBE",
+    role: "NARRATIVE ARCHITECT",
+    titles: ["Content writer", "Copywriter", "Brand Storyteller", "Social media manager"],
+    bio: "I’m Zuri, a seasoned content writer, and a storyteller with over 4 years of experience in creating high performing, SEO content that tells compelling stories to a diverse audience. Over the years, I have crafted high ranking articles, and created written content for both local and international audiences. Your brand could be next, let’s get started!",
+    avatar: {
+        url: "https://lh3.googleusercontent.com/aida/AP1WRLvhWIX7NRGiJxYpnFVwZr-comzLMD3BiKDz3iuRgjgo4m7wEQeHyX6mhW17SyTCPlWPAsJFBIWq6oubuQijLwsqE3Zd9HQei6d6gofeUaCNKX8RvfAjf-yLLSc2jFMCaqrhmUbzXssz8trlpxiUUp67z1ZxO2F2-5k_NBDRlbZLnLcuTg9TU5hknbcQJ3082HeHM41T8z3FE-CtK-x0kZlQsewIdQ354n6kaL9wSAkrpp6ohTq0Er39Og",
+        collection: "GENESIS",
+        mintId: "zuriugbe_v1 #0001"
+    },
+    cvUrl: "https://media.journoportfolio.com/users/478194/uploads/9bbd0c5c-23bf-4243-a214-81315b56fb3b.pdf"
+};
+
 const Hero = () => {
-    const [data, setData] = useState(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        fetch('http://localhost:5000/api/hero')
-            .then(res => res.json())
-            .then(data => {
-                setData(data);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error('Error fetching hero data:', err);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return (
-        <div className="min-h-screen flex items-center justify-center bg-background">
-            <div className="text-label-caps animate-pulse text-taupe tracking-widest">INITIALIZING IDENTITY...</div>
-        </div>
-    );
-
-    if (!data) return null;
-
     return (
-        <section id="home" className="relative min-h-screen flex items-center pt-24 pb-section-gap px-margin-edge max-w-container-max mx-auto overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center w-full">
-                {/* Left Content */}
+        <section id="home" className="relative min-h-[50vh] flex items-center pt-8 md:pt-24 pb-12 md:pb-section-gap px-margin-edge max-w-container-max mx-auto overflow-hidden">
+            {/* Mobile View: Card Style */}
+            <div className="md:hidden w-full max-w-md mx-auto reveal-item active app-card p-6 text-center space-y-6">
+                {/* Scaled Down Avatar */}
+                <div className="flex justify-center">
+                    <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="relative w-32 h-32 inner-glow rounded-full overflow-hidden border border-gold-leaf/20"
+                    >
+                        <img
+                            src={HERO_DATA.avatar.url}
+                            alt={HERO_DATA.name}
+                            className="w-full h-full object-cover"
+                        />
+                    </motion.div>
+                </div>
+
+                <div className="space-y-2">
+                    <span className="text-[9px] font-semibold tracking-[0.3em] text-taupe uppercase">{HERO_DATA.role}</span>
+                    <h1 className="font-serif text-3xl text-espresso tracking-tight uppercase">{HERO_DATA.name}</h1>
+                    <p className="font-serif text-sm italic text-taupe">Content Writer & Brand Storyteller</p>
+                </div>
+
+                <p className="text-sm text-on-surface-variant leading-relaxed px-2">
+                    {HERO_DATA.bio}
+                </p>
+
+                <div className="space-y-3 pt-2">
+                    <a
+                        href="#portfolio"
+                        className="interactive-scale w-full py-4 bg-espresso text-white rounded-lg text-[10px] font-semibold tracking-[0.2em] uppercase block text-center"
+                    >
+                        Explore My Work
+                    </a>
+                    <a
+                        href={HERO_DATA.cvUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="interactive-scale flex items-center justify-center gap-2 text-[9px] font-semibold text-espresso uppercase tracking-widest py-2"
+                    >
+                        View Manifesto <ArrowRight size={14} />
+                    </a>
+                </div>
+            </div>
+
+            {/* Desktop View: Grid Layout */}
+            <div className="hidden md:grid md:grid-cols-12 gap-gutter items-center w-full">
+                {/* Visual: NFT Avatar */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className="md:col-span-6 md:order-2 flex justify-end mb-12 md:mb-0"
+                >
+                    <div className="relative w-full max-w-[500px] animate-float">
+                        <div className="aspect-square bevel-container bg-linen-cream p-gutter overflow-hidden flex items-center justify-center relative">
+                            <img
+                                src={HERO_DATA.avatar.url}
+                                alt={`${HERO_DATA.name} NFT Avatar`}
+                                className="w-full h-full object-cover filter contrast-[1.05]"
+                            />
+                            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center bg-white/90 backdrop-blur-sm p-4 bevel-container">
+                                <div>
+                                    <p className="font-sans text-[10px] text-taupe leading-none mb-1 font-bold uppercase">COLLECTION: {HERO_DATA.avatar.collection}</p>
+                                    <p className="font-sans text-sm text-espresso font-bold">MINTED: {HERO_DATA.avatar.mintId}</p>
+                                </div>
+                                <div className="w-8 h-8 bg-espresso flex items-center justify-center rounded-full">
+                                    <BadgeCheck size={16} className="text-bone-white" />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="absolute -top-8 -right-8 w-24 h-24 border border-gold-leaf/30 -z-10 rotate-12"></div>
+                        <div className="absolute -bottom-12 -left-12 w-48 h-48 border border-espresso/10 -z-10 -rotate-6"></div>
+                    </div>
+                </motion.div>
+
+                {/* Content Area */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="lg:col-span-6 space-y-gutter"
+                    className="md:col-span-6 md:order-1 space-y-gutter"
                 >
                     <div className="space-y-4">
-                        <span className="text-label-caps text-taupe tracking-[0.3em] font-semibold">{data.role}</span>
+                        <span className="text-label-caps text-taupe tracking-[0.3em] font-semibold block">{HERO_DATA.role}</span>
                         <h1 className="text-display-lg text-espresso leading-none font-semibold uppercase">
-                            {data.name}
+                            {HERO_DATA.name}
                         </h1>
-                        <p className="text-headline-sm text-secondary italic">
-                            {data.titles.join(' | ')}
+                        <p className="text-headline-sm text-on-surface-variant italic leading-tight">
+                            {HERO_DATA.titles.join(' | ')}
                         </p>
                     </div>
                     <p className="font-sans text-[18px] text-on-surface-variant max-w-xl leading-relaxed">
-                        {data.bio}
+                        I’m Zuri, a seasoned content writer and storyteller with over 4 years of experience. I craft compelling narratives that bridge the gap between brand identity and audience engagement.
                     </p>
                     <div className="flex items-center gap-6 pt-4">
                         <a
@@ -58,45 +122,13 @@ const Hero = () => {
                             <div className="absolute inset-0 bg-gold-leaf translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                         </a>
                         <a
-                            href={data.cvUrl}
+                            href={HERO_DATA.cvUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-label-caps font-bold text-espresso hover:text-taupe transition-colors flex items-center gap-2 tracking-widest uppercase"
                         >
                             VIEW CV <ArrowRight size={16} />
                         </a>
-                    </div>
-                </motion.div>
-
-                {/* Right Visual: NFT Avatar */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    className="lg:col-span-6 flex justify-center lg:justify-end"
-                >
-                    <div className="relative w-full max-w-[500px] animate-float">
-                        {/* Beveled Container */}
-                        <div className="aspect-square bevel-container bg-linen-cream p-gutter overflow-hidden flex items-center justify-center relative">
-                            <img
-                                src={data.avatar.url}
-                                alt={`${data.name} NFT Avatar`}
-                                className="w-full h-full object-cover filter contrast-[1.05]"
-                            />
-                            {/* Mint Tag Overlay */}
-                            <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center bg-white/90 backdrop-blur-sm p-4 bevel-container">
-                                <div>
-                                    <p className="font-sans text-[10px] text-taupe leading-none mb-1 font-bold uppercase">COLLECTION: {data.avatar.collection}</p>
-                                    <p className="font-sans text-sm text-espresso font-bold">MINTED: {data.avatar.mintId}</p>
-                                </div>
-                                <div className="w-8 h-8 bg-espresso flex items-center justify-center rounded-full">
-                                    <BadgeCheck size={16} className="text-bone-white" />
-                                </div>
-                            </div>
-                        </div>
-                        {/* Accent elements */}
-                        <div className="absolute -top-8 -right-8 w-24 h-24 border border-gold-leaf/30 -z-10 rotate-12"></div>
-                        <div className="absolute -bottom-12 -left-12 w-48 h-48 border border-espresso/10 -z-10 -rotate-6"></div>
                     </div>
                 </motion.div>
             </div>
