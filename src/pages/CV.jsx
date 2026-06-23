@@ -14,15 +14,6 @@ const CV_DATA = {
                 "Developed proprietary storytelling tools.",
                 "Consulted for Tier-1 luxury brands."
             ]
-        },
-        {
-            role: "Senior Content Strategist",
-            period: "2019 — 2022",
-            company: "Linen & Lead Editorial",
-            bullets: [
-                "Led digital transformation of heritage publications.",
-                "Pioneered Editorial Minimalism UI frameworks."
-            ]
         }
     ],
     competencies: [
@@ -142,26 +133,7 @@ const CV = () => {
                             </div>
                         </motion.div>
 
-                        {/* Education */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="app-card md:bg-transparent p-8 md:p-0"
-                        >
-                            <h2 className="text-[10px] md:text-label-caps text-espresso font-bold mb-6 flex items-center gap-2 tracking-widest uppercase">
-                                <Book size={16} className="text-gold-leaf" />
-                                Education
-                            </h2>
-                            <div className="space-y-6">
-                                {CV_DATA.education.map((edu, idx) => (
-                                    <div key={idx} className="group">
-                                        <p className="text-sm md:text-body-md text-espresso font-medium transition-colors leading-tight italic">{edu.degree}</p>
-                                        <p className="text-[9px] text-taupe font-bold mt-1 uppercase tracking-widest">{edu.school}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
+
 
                         {/* CTA Card (Mobile View specific) */}
                         <motion.div
