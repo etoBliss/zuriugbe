@@ -8,9 +8,9 @@ const HERO_DATA = {
     titles: ["Content writer", "Copywriter", "Brand Storyteller", "Social media manager"],
     bio: "I’m Zuri, a seasoned content writer, and a storyteller with over 4 years of experience in creating high performing, SEO content that tells compelling stories to a diverse audience. Over the years, I have crafted high ranking articles, and created written content for both local and international audiences. Your brand could be next, let’s get started!",
     avatar: {
-        url: "https://lh3.googleusercontent.com/aida/AP1WRLvhWIX7NRGiJxYpnFVwZr-comzLMD3BiKDz3iuRgjgo4m7wEQeHyX6mhW17SyTCPlWPAsJFBIWq6oubuQijLwsqE3Zd9HQei6d6gofeUaCNKX8RvfAjf-yLLSc2jFMCaqrhmUbzXssz8trlpxiUUp67z1ZxO2F2-5k_NBDRlbZLnLcuTg9TU5hknbcQJ3082HeHM41T8z3FE-CtK-x0kZlQsewIdQ354n6kaL9wSAkrpp6ohTq0Er39Og",
-        collection: "GENESIS",
-        mintId: "zuriugbe_v1 #0001"
+        url: "/src/assets/profile-portrait.png",
+        collection: "NARRATIVE ARCHITECT",
+        mintId: "zuri_ident_v2"
     },
     cvUrl: "https://media.journoportfolio.com/users/478194/uploads/9bbd0c5c-23bf-4243-a214-81315b56fb3b.pdf"
 };
@@ -80,13 +80,7 @@ const Hero = () => {
                                 className="w-full h-full object-cover filter contrast-[1.05]"
                             />
                             <div className="absolute bottom-6 left-6 right-6 flex justify-between items-center bg-white/90 backdrop-blur-sm p-4 bevel-container">
-                                <div>
-                                    <p className="font-sans text-[10px] text-taupe leading-none mb-1 font-bold uppercase">COLLECTION: {HERO_DATA.avatar.collection}</p>
-                                    <p className="font-sans text-sm text-espresso font-bold">MINTED: {HERO_DATA.avatar.mintId}</p>
-                                </div>
-                                <div className="w-8 h-8 bg-espresso flex items-center justify-center rounded-full">
-                                    <BadgeCheck size={16} className="text-bone-white" />
-                                </div>
+
                             </div>
                         </div>
                         <div className="absolute -top-8 -right-8 w-24 h-24 border border-gold-leaf/30 -z-10 rotate-12"></div>
