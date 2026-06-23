@@ -8,6 +8,7 @@ import PortfolioPage from './pages/Portfolio';
 import Blog from './pages/Blog';
 import CV from './pages/CV';
 import Contact from './pages/Contact';
+import Admin from './pages/Admin';
 import './index.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       case 'blog': return <Blog />;
       case 'cv': return <CV />;
       case 'contact': return <Contact />;
+      case 'admin': return <Admin />;
       default: return <Home />;
     }
   };
