@@ -7,6 +7,7 @@ import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 const CATEGORIES = [
     { id: 'ALL', label: 'ALL' },
     { id: 'COPYWRITING (SOCIAL MEDIA)', label: 'COPYWRITING' },
+    { id: 'BLOG POSTS / ARTICLES', label: 'ARTICLES' },
     { id: 'SOCIAL MEDIA MANAGEMENT', label: 'MANAGEMENT' }
 ];
 
