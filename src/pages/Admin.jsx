@@ -77,6 +77,27 @@ const Admin = () => {
         resetForm();
     };
 
+    const wipeAll = async () => {
+        if (!window.confirm('CRITICAL ACTION: This will permanentely erase the ENTIRE registry. Are you absolutely certain?')) return;
+        const confirmText = window.prompt('Type "DELETE EVERYTHING" to confirm:');
+        if (confirmText !== 'DELETE EVERYTHING') return;
+
+        setLoading(true);
+        try {
+            // Firestore doesn't have a direct 'delete collection' on client side for safety
+            // We loop through local state projects and delete them
+            for (const p of projects) {
+                await deleteDoc(doc(db, 'portfolio', p.id));
+            }
+            setStatus({ type: 'success', message: 'Registry has been completely purged.' });
+        } catch (error) {
+            console.error('Wipe error:', error);
+            setStatus({ type: 'error', message: 'Wipe operation failed partially.' });
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const resetForm = () => {
         setFormData({
             title: '',
@@ -305,6 +326,23 @@ const Admin = () => {
                         </AnimatePresence>
                     </div>
                 </section>
+                {/* Danger Zone */}
+                {projects.length > 0 && (
+                    <section className="pt-20 border-t border-red-500/10">
+                        <div className="app-card p-8 border border-red-500/20 bg-red-50/30">
+                            <h3 className="text-sm font-bold text-red-700 uppercase tracking-[0.2em] mb-2">Danger Zone</h3>
+                            <p className="text-xs text-red-600/70 mb-6 font-sans">
+                                Permanentely clear the entire professional ledger. This action cannot be undone.
+                            </p>
+                            <button
+                                onClick={wipeAll}
+                                className="px-6 py-3 border border-red-500 text-red-500 text-[10px] font-bold uppercase tracking-widest hover:bg-red-500 hover:text-white transition-all rounded-md"
+                            >
+                                WIPE ENTIRE REGISTRY
+                            </button>
+                        </div>
+                    </section>
+                )}
             </div>
         </main>
     );
