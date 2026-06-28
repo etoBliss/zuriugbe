@@ -33,7 +33,7 @@ const Portfolio = () => {
                 <div className="flex justify-between items-end mb-2">
                     <div>
                         <span className="text-[9px] font-semibold text-gold-leaf uppercase tracking-[0.2em] font-sans">Portfolio Excerpt</span>
-                        <h2 className="font-serif text-xl text-espresso italic">Selected Artifacts</h2>
+                        <h2 className="font-serif text-xl text-espresso italic">Some Of My Projects</h2>
                     </div>
                     <a href="#portfolio" className="text-[9px] font-bold text-taupe border-b border-taupe/30 pb-0.5 uppercase tracking-widest">VIEW ALL</a>
                 </div>
