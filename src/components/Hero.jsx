@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck } from 'lucide-react';
+import profilePortrait from '../assets/profile-portrait.png';
 
 const HERO_DATA = {
     name: "ZURI UGBE",
@@ -8,7 +9,7 @@ const HERO_DATA = {
     titles: ["Content writer", "Copywriter", "Brand Storyteller", "Social media manager"],
     bio: "I’m Zuri, a seasoned content writer, and a storyteller with over 4 years of experience in creating high performing, SEO content that tells compelling stories to a diverse audience. Over the years, I have crafted high ranking articles, and created written content for both local and international audiences. Your brand could be next, let’s get started!",
     avatar: {
-        url: "/src/assets/profile-portrait.png",
+        url: profilePortrait,
         collection: "NARRATIVE ARCHITECT",
         mintId: "zuri_ident_v2"
     },
