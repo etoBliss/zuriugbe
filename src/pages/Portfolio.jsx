@@ -47,7 +47,7 @@ const PortfolioPage = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="font-serif text-3xl md:text-display-lg text-espresso mb-3 leading-tight"
                         >
-                            Archive of Intentional Narratives
+                            Take A Look At My Work
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0, y: 15 }}
@@ -55,7 +55,7 @@ const PortfolioPage = () => {
                             transition={{ delay: 0.1 }}
                             className="text-sm md:text-body-lg text-on-surface-variant leading-relaxed tracking-luxury italic"
                         >
-                            A curated selection of digital artifacts and brand architectures. Deliberate curation and resonance.
+                            Building community, one brand at a time
                         </motion.p>
                     </div>
                 </section>

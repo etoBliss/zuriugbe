@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Services from './pages/Services';
 import PortfolioPage from './pages/Portfolio';
 import Blog from './pages/Blog';
-import CV from './pages/CV';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import './index.css';
@@ -20,7 +19,6 @@ function App() {
       case 'services': return <Services />;
       case 'portfolio': return <PortfolioPage />;
       case 'blog': return <Blog />;
-      case 'cv': return <CV />;
       case 'contact': return <Contact />;
       case 'admin': return <Admin />;
       default: return <Home />;

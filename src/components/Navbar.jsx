@@ -10,7 +10,6 @@ const Navbar = () => {
         { label: 'Services', href: '#services' },
         { label: 'Portfolio', href: '#portfolio' },
         { label: 'Blog', href: '#blog' },
-        { label: 'CV', href: '#cv' },
     ];
 
     useEffect(() => {

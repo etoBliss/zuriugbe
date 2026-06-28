@@ -76,7 +76,7 @@ const Portfolio = () => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-gutter">
                     <div className="max-w-xl">
                         <span className="text-label-caps text-taupe mb-4 block font-bold tracking-[0.2em]">PORTFOLIO EXCERPT</span>
-                        <h2 className="text-headline-md text-espresso leading-tight font-medium font-serif italic">Selected Artifacts of Narrative Strategy</h2>
+                        <h2 className="text-headline-md text-espresso leading-tight font-medium font-serif italic">Take A Look At Some Of My Projects</h2>
                     </div>
                     <a href="#portfolio" className="text-label-caps font-bold text-espresso border-b border-espresso pb-1 hover:text-taupe hover:border-taupe transition-all tracking-widest uppercase">
                         VIEW ALL PROJECTS

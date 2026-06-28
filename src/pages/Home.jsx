@@ -1,7 +1,6 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import Portfolio from '../components/Portfolio';
-import Newsletter from '../components/Newsletter';
 import { motion } from 'framer-motion';
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
         >
             <Hero />
             <Portfolio />
-            <Newsletter />
         </motion.div>
     );
 };
